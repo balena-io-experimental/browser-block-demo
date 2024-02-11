@@ -1,4 +1,7 @@
 # Browser Block Demo
+
+<img src="web.jpg">
+
 This project is a ready-to-deploy example of the [balena browser block](https://github.com/balena-labs-projects/browser).
 
 The browser block provides a hardware accelerated web browser to present internal and external URLs on a connected display. The browser block is a docker image that runs a Chromium browser via X11, optimized for balenaOS.
