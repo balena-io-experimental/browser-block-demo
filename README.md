@@ -27,3 +27,7 @@ You can repeat the above steps to change the URL displayed on any of the devices
 ## Deploy a fleet of these devices
 
 BalenaCloud is all about making it easy to maintain fleets of devices. To easily add more device, simply flash the same image used for the first device to additional SD cards and boot additional devices. They will all get their own unique ID and show up as separate devices in your dashboard. You can then remotely change the displayed URL using the steps described above. 
+
+
+Photo by <a href="https://unsplash.com/@artnok?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Nicolas Picard</a> on <a href="https://unsplash.com/photos/selective-focus-photography-of-spiderweb--lp8sTmF9HA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  
