@@ -1,0 +1,28 @@
+name: browser-block-demo
+type: sw.application
+joinable: false
+description: >-
+  A ready-to-deploy example of the balena browser block, a hardware accelerated web browser to present internal and external URLs on a connected display.
+post-provisioning: >-
+  ## Usage instructions
+
+  Allow a few minutes for your device to download the app. Once it's completed, 
+  you should see the welcome page displayed on the device's monitor.
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/balena-io-experimental/browser-block-demo'
+  logo:
+    type: blob.asset
+    data:
+      url: 'https://raw.githubusercontent.com/balena-io-experimental/browser-block-demo/master/logo.png'
+data:
+  supportedDeviceTypes:
+    - raspberrypi3-64
+    - raspberrypi400-64
+    - raspberrypi4-64
+    - raspberrypi5
+    - raspberrypi0-2w-64
+    - intel-nuc
+    - generic-amd64

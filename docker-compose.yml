@@ -1,0 +1,21 @@
+version: '2'
+
+volumes:
+  settings:                          # Only required if using PERSISTENT flag (see below)
+
+services:
+
+  browser:
+    build: .
+    privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
+    ports:
+        - '5011' # management API (optional)
+        - '35173' # Chromium debugging port (optional)
+    volumes:
+      - 'settings:/data' # Only required if using PERSISTENT flag (see below)
+    network_mode: host  # Only needed to auto display web server on port 80
+    
+  webserver:
+    build: ./webserver
+    ports:
+      - "80:80"
