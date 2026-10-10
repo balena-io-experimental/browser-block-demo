@@ -1,20 +1,35 @@
 version: '2'
 
 volumes:
+  display-socket:                    # Shared Wayland runtime directory
   settings:                          # Only required if using PERSISTENT flag (see below)
 
 services:
 
+  display:
+    build: ./display
+    privileged: true
+    volumes:
+      - display-socket:/run
+    labels:
+      io.balena.features.dbus: '1'
+      
   browser:
     build: .
-    privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
+    privileged: true # required for sound (/dev/snd) and V4L2 video-decode (/dev/video*) device access
+    network_mode: host  # required to automatically discover HTTP services on port 80 or 8080, or HTTPS on port 443
+    depends_on:
+      - display
+    environment:
+      XDG_RUNTIME_DIR: /run/user/0
+      WAYLAND_DISPLAY: wayland-0
+    devices:
+      - /dev/dri:/dev/dri
     ports:
-        - '5011' # management API (optional)
-        - '35173' # Chromium debugging port (optional)
+      - '5011:5011' # management API
     volumes:
+      - display-socket:/run
       - 'settings:/data' # Only required if using PERSISTENT flag (see below)
-    network_mode: host  # Only needed to auto display web server on port 80
-    
   webserver:
     build: ./webserver
     ports:

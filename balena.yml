@@ -23,6 +23,5 @@ data:
     - raspberrypi400-64
     - raspberrypi4-64
     - raspberrypi5
-    - raspberrypi0-2w-64
     - intel-nuc
     - generic-amd64
